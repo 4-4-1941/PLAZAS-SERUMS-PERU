@@ -1,1 +1,42 @@
-
+{
+  "proyecto": "PLAZAS SERUMS PERÚ",
+  "convocatoria": "2026-I",
+  "fuente_primaria": "MINSA",
+  "archivos_fuente": [
+    "8040039-oferta-de-plazas-remuneradas-proceso-serums-2026-i.xlsx",
+    "8040039-oferta-de-plazas-equivalentes-proceso-serums-2026-i.xlsx"
+  ],
+  "columnas_oficiales": [
+    "INSTITUCIÓN OFERTANTE",
+    "PROFESIÓN",
+    "SEDE DE ADJUDICACIÓN",
+    "N° PLAZAS",
+    "DIRESA GERESA DIRIS",
+    "INSTITUCIÓN",
+    "DEPARTAMENTO",
+    "PROVINCIA",
+    "DISTRITO",
+    "GRADO DE DIFICULTAD",
+    "CÓDIGO RENIPRESS",
+    "NOMBRE DE ESTABLECIMIENTO",
+    "CATEGORÍA",
+    "PRESUPUESTO",
+    "ZAF (*)",
+    "ZE (**)"
+  ],
+  "registros": {
+    "remuneradas": 7323,
+    "equivalentes": 8695
+  },
+  "plazas": {
+    "remuneradas": 7489,
+    "equivalentes": 12604,
+    "total": 20093
+  },
+  "reglas": [
+    "oficial_minsa conserva el contenido publicado por MINSA.",
+    "codigo_renipress se conserva como texto de 8 dígitos.",
+    "normalizado no sobrescribe el dato oficial.",
+    "Variantes ortográficas y abreviaturas equivalentes conocidas no son incidencias."
+  ]
+}
