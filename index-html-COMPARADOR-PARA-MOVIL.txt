@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plazas SERUMS Perú · SIP</title>
+<style>
+:root{--bg:#f4f7fb;--surface:#fff;--ink:#172033;--muted:#617086;--primary:#155eef;--line:#dce3ec;--soft:#eaf1ff;--ok:#087a55}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}
+header{background:linear-gradient(135deg,#0e326f,#155eef);color:#fff;padding:48px 0 38px}.eyebrow{font-size:.82rem;font-weight:700}h1{font-size:clamp(2rem,6vw,4rem);margin:12px 0}.lead{color:#e6efff}
+main{padding:28px 0}.status,.panel,.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:22px}.status{background:#edf8f4}.status strong{color:var(--ok)}
+.filters{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}label{display:grid;gap:6px;font-size:.86rem;font-weight:700}select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:11px;background:#fff}select:disabled{background:#f1f5f9}
+.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}button{border:0;border-radius:11px;padding:12px 17px;font-weight:800}.primary{background:var(--primary);color:#fff}.primary:disabled{background:#b9c8e8}#estado-datos{font-size:.88rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1.35fr .65fr;gap:22px}.placeholder{min-height:180px;display:grid;place-items:center;text-align:center;border:1px dashed #b8c4d4;border-radius:14px;padding:22px;color:var(--muted)}
+.result-summary{padding:12px;background:var(--soft);border-radius:12px;margin-bottom:12px}.result-list{display:grid;gap:12px}.plaza-card{border:1px solid var(--line);border-radius:14px;padding:15px}.plaza-head{display:flex;justify-content:space-between;gap:12px}.plaza-head span{white-space:nowrap;font-weight:800}
+.card-actions{margin-top:12px}.compare-btn{background:#eaf1ff;color:#155eef;border:1px solid #bfd1ff}.compare-btn.selected{background:#172033;color:#fff}.compare-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.compare-scroll{overflow-x:auto}.compare-table{width:100%;border-collapse:collapse;min-width:720px}.compare-table th,.compare-table td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}.compare-table thead th{background:var(--soft)}.compare-table tbody th{background:#f8fafc;min-width:145px}.remove-compare{float:right;padding:1px 7px;margin-left:8px;background:#fff;border:1px solid var(--line);font-size:1.1rem}.steps{padding-left:22px}.steps li{margin-bottom:12px}.source,footer{color:var(--muted);font-size:.9rem}footer{padding:20px 0 35px;border-top:1px solid var(--line)}
+@media(max-width:850px){.filters{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}@media(max-width:520px){.filters{grid-template-columns:1fr}.wrap{width:calc(100% - 22px)}.plaza-head{flex-direction:column}}
+</style></head>
+<body>
+<header><div class="wrap"><div class="eyebrow">ECOSISTEMA PROFESIONAL SERUMS PERÚ</div><h1>Plazas SERUMS Perú</h1><p class="lead">Explorador profesional de la oferta oficial SERUMS.</p></div></header>
+<main class="wrap">
+<div class="status"><strong>SERUMS 2026-I y 2026-II · Datos oficiales cargados.</strong><br>Consulta cada convocatoria de forma independiente.</div>
+<section class="panel"><h2>Explorar plazas</h2><p>Selecciona convocatoria, modalidad y filtra progresivamente la oferta MINSA.</p>
+<div class="filters">
+<label>Convocatoria<select id="f-convocatoria"><option value="2026-II">2026-II</option><option value="2026-I">2026-I</option></select></label>
+<label>Modalidad<select id="f-modalidad"><option value="">Selecciona modalidad</option><option value="remuneradas">Remunerada</option><option value="equivalentes">Equivalente</option></select></label>
+<label>Profesión<select id="f-profesion" disabled><option>Selecciona modalidad</option></select></label>
+<label>Departamento<select id="f-departamento" disabled><option>Selecciona modalidad</option></select></label>
+<label>Provincia<select id="f-provincia" disabled><option>Selecciona departamento</option></select></label>
+<label>Distrito<select id="f-distrito" disabled><option>Selecciona provincia</option></select></label>
+</div><div class="actions"><button id="btn-buscar" class="primary" disabled>Buscar plazas</button><span id="estado-datos">Selecciona una convocatoria y modalidad para cargar la oferta oficial.</span></div></section>
+<div class="grid"><section class="card"><h2>Resultados</h2><div id="resultados"><div class="placeholder"><div><strong>Selecciona tus criterios.</strong><p>Aquí aparecerán las plazas oficiales disponibles.</p></div></div></div></section>
+<aside class="card"><h2>Ruta del módulo</h2><ol class="steps"><li><b>Oferta oficial</b> — 2026-I y 2026-II cargadas.</li><li><b>Explorar</b> — activo.</li><li><b>Comparar</b> — activo.</li><li><b>Ubicar</b> — RENIPRESS y coordenadas verificadas.</li><li><b>Llegar</b> — mapa y orientación.</li></ol></aside></div>
+<section class="card"><div class="compare-head"><div><h2>Comparar plazas</h2><p>Comparación factual de hasta 3 registros oficiales MINSA.</p></div><strong id="comparador-count">0/3 seleccionadas</strong></div><div id="comparador"></div></section>
+<p class="source"><strong>Fuente primaria:</strong> Ministerio de Salud del Perú (MINSA) · Programa SERUMS. La aplicación no sustituye la publicación oficial ni la adjudicación formal.</p>
+</main><footer><div class="wrap">© SIP · SYSTEM INTELLIGENCE PLATFORM 2026 · Plazas SERUMS Perú</div></footer>
+<script src="app.js"></script></body></html>
