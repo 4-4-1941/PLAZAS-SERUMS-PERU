@@ -1,0 +1,32 @@
+{
+  "convocatoria": "2026-II",
+  "fuente_primaria": "Ministerio de Salud del Perú (MINSA)",
+  "formato_fuente": "PDF oficial",
+  "columnas_oficiales": 16,
+  "archivos_fuente": {
+    "remuneradas": "8493405-oferta-de-plazas-remuneradas-serums-2026-ii.pdf",
+    "equivalentes": "8493405-oferta-de-plazas-equivalentes-serums-2026-ii.pdf"
+  },
+  "estadisticas": {
+    "remuneradas": {
+      "registros": 3201,
+      "plazas": 3225,
+      "renipress_unicos": 2371,
+      "profesiones": 19,
+      "paginas_pdf": 130
+    },
+    "equivalentes": {
+      "registros": 7926,
+      "plazas": 11040,
+      "renipress_unicos": 2569,
+      "profesiones": 17,
+      "paginas_pdf": 295
+    }
+  },
+  "total_plazas": 14265,
+  "reglas": [
+    "oficial_minsa conserva el contenido extraído del PDF oficial",
+    "codigo_renipress se conserva como texto de 8 dígitos",
+    "normalizado no sustituye el dato oficial"
+  ]
+}
