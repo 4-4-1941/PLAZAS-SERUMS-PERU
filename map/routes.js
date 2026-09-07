@@ -1,7 +1,0 @@
-(()=>{"use strict";
-const R=6371,rad=x=>x*Math.PI/180;
-function recta(a,b){const dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),la1=rad(a.lat),la2=rad(b.lat),h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
-async function carretera(a,b){const u=`https://router.project-osrm.org/route/v1/driving/${a.lon},${a.lat};${b.lon},${b.lat}?overview=false&steps=false`;const r=await fetch(u);if(!r.ok)throw Error(`OSRM HTTP ${r.status}`);const d=await r.json(),x=d.routes?.[0];return x?{km:x.distance/1000,min:x.duration/60}:null}
-function google(a,b){return `https://www.google.com/maps/dir/?api=1&origin=${a.lat},${a.lon}&destination=${b.lat},${b.lon}&travelmode=driving`}
-window.SERUMSRoutes={recta,carretera,google};
-})();
