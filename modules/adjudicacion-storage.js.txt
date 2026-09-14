@@ -1,0 +1,11 @@
+(()=>{"use strict";
+const KEY="sip-serums-adjudicacion-v1";
+const empty=()=>({version:1,alternativas:[],planes:{A:[],B:[],C:[]},simulacion:null,adjudicada:null,updatedAt:null});
+function read(){try{const x=JSON.parse(localStorage.getItem(KEY)||"null");return x&&x.version===1?{...empty(),...x,planes:{...empty().planes,...(x.planes||{})}}:empty()}catch{return empty()}}
+function write(state){const next={...empty(),...state,updatedAt:new Date().toISOString()};localStorage.setItem(KEY,JSON.stringify(next));dispatchEvent(new CustomEvent("sip:adjudicacion:state",{detail:next}));return next}
+function plazaKey(r){return [r?.convocatoria,r?.modalidad,r?.id].map(v=>String(v??"")).join("|")}
+function setAlternativas(rows){const s=read(),seen=new Set(),alternativas=(rows||[]).filter(r=>{const k=plazaKey(r);if(!k||seen.has(k))return false;seen.add(k);return true});return write({...s,alternativas})}
+function assign(plan,row){if(!["A","B","C"].includes(plan))throw Error("Plan inválido");const s=read(),k=plazaKey(row),planes={A:[],B:[],C:[],...s.planes};for(const p of ["A","B","C"])planes[p]=(planes[p]||[]).filter(r=>plazaKey(r)!==k);planes[plan].push(row);return write({...s,planes})}
+function remove(row){const s=read(),k=plazaKey(row),planes={...s.planes};for(const p of ["A","B","C"])planes[p]=(planes[p]||[]).filter(r=>plazaKey(r)!==k);return write({...s,planes})}
+window.SIP_ADJUDICACION_STORAGE=Object.freeze({read,write,setAlternativas,assign,remove,plazaKey});
+})();
